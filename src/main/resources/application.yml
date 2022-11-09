@@ -1,0 +1,36 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /people-ws
+spring:
+  application:
+    name: people-ws
+  datasource:
+    url: jdbc:postgresql://localhost:5432/people
+    username: postgres
+    password: root
+    driverClassName: org.postgresql.Driver
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://oauth-server:9000/realms/OauthService
+
+        
+  sql:
+   init:
+     platform: postgres
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: TRACE
+        security: TRACE
+        oauth2: TRACE
+  
