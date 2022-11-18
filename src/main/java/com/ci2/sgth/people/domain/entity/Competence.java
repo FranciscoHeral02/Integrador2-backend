@@ -6,8 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import lombok.Builder;
@@ -16,19 +14,14 @@ import lombok.Data;
 @Entity
 @Data
 @Builder
-public class Category {
+public class Competence {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long categoryId;	
+	private Long idCompetencia;
+	private String nombreCompetencia;
+	private String descripcionCompetencia;
 	
-	private String nombreCategoria;
-	
-	private String pagoHora;
-	
-	@ManyToOne
-    @JoinColumn
-	private Job job;
-	
-	@OneToMany(mappedBy = "category")
+	@OneToMany(mappedBy = "competence")
 	private Set<CategoryCompetence> categoryCompetence;
+	
 }

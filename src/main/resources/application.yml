@@ -19,9 +19,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://oauth-server:9000/realms/OauthService
-
-        
+          issuer-uri: http://oauth-server:9000/realms/OauthService      
   sql:
    init:
      platform: postgres
@@ -33,4 +31,8 @@ logging:
         web: TRACE
         security: TRACE
         oauth2: TRACE
+app:
+  file:
+    upload-dir: ./uploads/files/docs
+      
   

@@ -1,34 +1,28 @@
 package com.ci2.sgth.people.domain.entity;
 
+import java.time.LocalDateTime;
 import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import lombok.Builder;
 import lombok.Data;
 
 @Entity
 @Data
-@Builder
-public class Category {
+public class Evaluation {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
-	private Long categoryId;	
+	private Long evaluationId;
 	
-	private String nombreCategoria;
+	private LocalDateTime  fechaEvaluacion;
+	private Boolean aprobado;
 	
-	private String pagoHora;
+	@OneToMany
+	private Set<ResultScore> resultScoreSet;
 	
-	@ManyToOne
-    @JoinColumn
-	private Job job;
-	
-	@OneToMany(mappedBy = "category")
-	private Set<CategoryCompetence> categoryCompetence;
 }

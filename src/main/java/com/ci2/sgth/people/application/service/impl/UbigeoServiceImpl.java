@@ -39,7 +39,7 @@ public class UbigeoServiceImpl implements UbigeoService {
 	}
 
 	@Override
-	public Set<Distrito> listDistritos(String codProv,String codDep) {
+	public Set<Distrito> listDistritos(String codDep,String codProv) {
 		
 		Set<Distrito> dists = ubigeoRepository.findByCodDepAndCodProvAndCodDistIsNotNull(codDep,codProv)
 				.stream().map(ubigeo-> new Distrito(ubigeo.getIdUbigeo(),ubigeo.getCodDist(),ubigeo.getDescDist()))
